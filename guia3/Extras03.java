@@ -26,7 +26,7 @@ public class Extras03 {
         Scanner leer = new Scanner(System.in);
 
         System.out.println("Ingrese una Letra");
-        String letra = leer.next();
+        String letra = leer.nextLine();
 
         if ((letra.equalsIgnoreCase("A")) || (letra.equalsIgnoreCase("E")) || (letra.equalsIgnoreCase("I")) || (letra.equalsIgnoreCase("O")) || (letra.equalsIgnoreCase("U"))) {
             System.out.println("La letra " + letra.toUpperCase() + " es VOCAL");

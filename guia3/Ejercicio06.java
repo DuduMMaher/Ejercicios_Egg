@@ -64,10 +64,11 @@ public class Ejercicio06 {
                 case 5:
                     System.out.println("Realmente desea Salir? S/N");
                     salir=leer.next();
+                    System.out.flush();
                     break;
             }
 
         } while (salir.equalsIgnoreCase("N"));
-
+ 
     }
 }
