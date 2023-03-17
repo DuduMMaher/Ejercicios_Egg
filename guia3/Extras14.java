@@ -45,7 +45,7 @@ public class Extras14 {
         double media = (double)sumaEdades/(double)cont;
         
         
-        System.out.println("La media de edades de los Chicos es de "+ String.format("%.2f", media));
+        System.out.println("La media de edades de los Chicos es de " + String.format("%.2f", media));
     
     
     }
