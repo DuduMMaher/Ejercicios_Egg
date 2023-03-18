@@ -40,7 +40,15 @@ public class Ejercicio02_Yasar_if {
     
     
     nombre=nombre.replace("a", "%");
-    
+        boolean par; //DEFINIMOS UNA VARIABLE BOOLEAN PARA EVALUAR LA CONDICION
+        int num=0;
+
+        par=(num%2==0);///La comparamos y devuelve True o False
+        System.out.println(par? "Par":"Impar");
+        // Al llamar a Par? con el signo de pregunta se fija si es true o false
+        // Si es true nos muestra el primer valor, si es false el segundo valor.
+       
+        
         System.out.println(nombre);
     
     
