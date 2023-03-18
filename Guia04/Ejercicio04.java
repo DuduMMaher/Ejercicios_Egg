@@ -30,37 +30,35 @@ public class Ejercicio04 {
         System.out.println("Ingrese un numero a revisar si es primo");
         int num1 = leer.nextInt();
 
-        
-        
         if (analisis(num1)) {
             System.out.println("El numero es primo");
         } else {
             System.out.println("El numero no es primo");
         }
     }
-    
-    public static boolean analisis(int a){
+
+    public static boolean analisis(int a) {
         boolean primo;
-        
-        if ((a==1)||(a==2)||(a==3)) {
-            primo=true;
+
+        if ((a == 1) || (a == 2) || (a == 3)) {
+            primo = true;
             return primo;
         }
-        
-        if (a%2==0) {
-            primo=false;
+
+        if (a % 2 == 0) {
+            primo = false;
             return primo;
         }
-        int c= ((int)a/2);
-        for (int i = 3; i < c; i=i+2) {
-            if (a%i==0) {
-                primo= false;
+        int c = ((int) a / 2);
+        for (int i = 3; i < c; i+=2) {
+            if (a % i == 0) {
+                primo = false;
                 return primo;
-                
+
             }
-            
+
         }
-        primo=true;
+        primo = true;
         return primo;
     }
 }
