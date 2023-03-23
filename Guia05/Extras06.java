@@ -34,6 +34,11 @@ public class Extras06 {
         String palabra = "";
         boolean ref1;
         String[][] sopa = new String[20][20];
+        int[] posicionH1 = new int[5];
+        int[] posicionV1 = new int[5];
+        int a=5;
+        inicializoVector(posicionH1, a);
+        inicializoVector(posicionV1, a);
         
         inicializoSopa(sopa);
 
@@ -49,7 +54,7 @@ public class Extras06 {
                 palabra = leer.next();
                 ref1 = false;
             } while ((palabra.length() < 3) || (palabra.length() > 5));
-            ingresoASopa(sopa, palabra);
+            ingresoASopa(sopa, palabra, posicionH1, posicionV1);
         }
        
         rellenoVacios(sopa);
@@ -57,23 +62,23 @@ public class Extras06 {
 
     }
 
-    public static void ingresoASopa(String[][] sopa, String palabra) {
+    public static void ingresoASopa(String[][] sopa, String palabra, int[] posicionH1, int[] posicionV1){
 
-        int posicionH = buscoPosicionH();
-        int posicionV = buscoPosicionV();
+        int posicionH = buscoPosicionH(posicionH1);
+        int posicionV = buscoPosicionV(posicionV1, palabra);
 
         int largo = palabra.length();
 
         for (int i = 0; i < largo; i++) {
-            sopa[posicionH][posicionV + i] = palabra.substring(i, i + 1);
+            sopa[posicionH][posicionV + i] = palabra.toLowerCase().substring(i, i + 1);
         }
 
     }
 
-    public static int buscoPosicionH() {
+    public static int buscoPosicionH(int[] posicionH1) {
 
         Random random = new Random();
-        int[] posicionH1 = new int[5];
+        
         boolean ref2 = false;
         int pos;
 
@@ -82,12 +87,17 @@ public class Extras06 {
             pos = random.nextInt(20);
 
             for (int i = 0; i < 5; i++) {
-                if (posicionH1[i] != pos) {
+               
+                if (posicionH1[i] == 100 ) {
                     posicionH1[i] = pos;
                     ref2 = false;
                     break;
                 } else {
-                    ref2 = true;
+                    if (posicionH1[i]==pos) {
+                        ref2 = true;
+                        break;
+                    }
+                    
                 }
             }
         } while (ref2);
@@ -96,27 +106,15 @@ public class Extras06 {
 
     }
 
-    public static int buscoPosicionV() {
+    public static int buscoPosicionV(int[] posicionV1, String palabra) {
 
         Random random = new Random();
-        int[] posicionV1 = new int[5];
-        boolean ref3 = false;
+        
+       
         int pos;
-
-        do {
-
-            pos = random.nextInt(15);
-
-            for (int i = 0; i < 5; i++) {
-                if (posicionV1[i] != pos) {
-                    posicionV1[i] = pos;
-                    ref3 = false;
-                    break;
-                } else {
-                    ref3 = true;
-                }
-            }
-        } while (ref3);
+        int rand=(20-palabra.length());
+      
+            pos = random.nextInt(rand);
 
         return pos;
     }
@@ -156,6 +154,11 @@ public class Extras06 {
         
     }
 
-
+    public static void inicializoVector(int[] vector,int a){
+        
+        for (int i = 0; i < a; i++) {
+            vector[i]=100;
+        }
+    }
 
 }
